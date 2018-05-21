@@ -15,6 +15,7 @@ import * as RecipeActions from '../../recipes/store/recipe.actions';
 
 export class HeaderComponent implements OnInit {
   authState: Observable<fromAuth.State>;
+  public isCollapsed = true;
 
   constructor(
     private store: Store<fromShopping.AppState>
