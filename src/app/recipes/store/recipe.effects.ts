@@ -15,7 +15,7 @@ export class RecipeEffects {
     .ofType(RecipeActions.FETCH_RECIPES)
     .pipe(
       switchMap((action: RecipeActions.FetchRecipe) => {
-        return this.httpClient.get<Recipe[]>('https://ng-recipe-book-3a818.firebaseio.com/recipes.json', {
+        return this.httpClient.get<Recipe[]>('https://cookbook-eda8c.firebaseio.com/recipes.json', {
           observe: 'body',
           responseType: 'json'
         });
@@ -43,11 +43,9 @@ export class RecipeEffects {
       switchMap(([action, state]) => {
         const req = new HttpRequest(
           'PUT',
-          'https://ng-recipe-book-3a818.firebaseio.com/recipes.json',
+          'https://cookbook-eda8c.firebaseio.com/recipes.json',
           state.recipes,
-          {
-            reportProgress: true
-          }
+          { reportProgress: true }
         );
         return this.httpClient.request(req);
       })

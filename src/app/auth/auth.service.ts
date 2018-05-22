@@ -33,7 +33,7 @@ export class AuthService {
       .then(
         response => {
           this.store.dispatch(new AuthActions.Signin());
-          this.router.navigate(['/shopping']);
+          this.router.navigate(['/']);
           firebase.auth().currentUser.getToken().then(
             (token: string) => {
               this.store.dispatch(new AuthActions.SetToken(token));
