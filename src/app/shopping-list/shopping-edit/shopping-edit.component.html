@@ -1,27 +1,38 @@
-<div class="row">
-  <div class="col-md-12">
+<div class="card">
+
+  <div class="card-header">
+    Add to shopping list
+  </div>
+
+  <div class="card-body">
+
     <form class="form-inline" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="container">
+        <div class="row">
 
-      <div class="col-lg-4 form-group">
-        <label for="name" class="col-sm-2 col-form-label">Name</label>
-        <div class="col-sm-10">
-          <input type="text" id="name" class="form-control" name="name" ngModel required>
+          <div class="col-lg-4 form-group">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" id="name" class="form-control" name="name" ngModel required>
+            </div>
+          </div>
+
+          <div class="col-lg-4 form-group">
+            <label for="amount" class="col-sm-2 col-form-label">Amount</label>
+            <div class="col-sm-10">
+              <input type="number" id="amount" class="form-control" name="amount" ngModel required pattern="^[1-9]+[0-9]*$">
+            </div>
+          </div>
+
+          <div id="sl-actions" class="col-lg-4 form-group btn-group sl-actions" role="group" aria-label="shopping list actions">
+            <button class="btn btn-success sl-action" type="submit" [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
+            <button class="btn btn-danger sl-action" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button>
+            <button class="btn btn-primary sl-action" type="button" (click)="onClear()">Clear</button>
+          </div>
+
         </div>
       </div>
-
-      <div class="col-lg-4 form-group">
-        <label for="amount" class="col-sm-2 col-form-label">Amount</label>
-        <div class="col-sm-10">
-          <input type="number" id="amount" class="form-control" name="amount" ngModel required pattern="^[1-9]+[0-9]*$">
-        </div>
-      </div>
-
-      <div class="col-lg-4 form-group btn-group" role="group" aria-label="Shoppinglist actions">
-        <button class="btn btn-success" type="submit" [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
-        <button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button>
-        <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
-      </div>
-
     </form>
+
   </div>
 </div>
