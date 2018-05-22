@@ -10,16 +10,19 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <div class="btn-group" appDropdown>
-      <button type="button" class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li><a (click)="onAddToShoppingList()" style="cursor: pointer">To Shopping List</a></li>
-        <li (click)="onEditRecipe()" style="cursor: pointer"><a>Edit Recipe</a></li>
-        <li style="cursor: pointer" (click)="onDeleteRecipe()"><a>Delete Recipe</a></li>
+    <div class="btn-group dropdown" ngbDropdown>
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
+        Manage Recipe <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownManage" ngbDropdownMenu>
+        <li class="dropdown-item"><a (click)="onAddToShoppingList()" style="cursor: pointer">To Shopping List</a></li>
+        <li class="dropdown-item" (click)="onEditRecipe()" style="cursor: pointer"><a>Edit Recipe</a></li>
+        <li class="dropdown-item" style="cursor: pointer" (click)="onDeleteRecipe()"><a>Delete Recipe</a></li>
       </ul>
     </div>
   </div>
 </div>
+
 <div class="row">
   <div class="col-xs-12">
     {{ (recipeState | async).recipes[id].description }}
