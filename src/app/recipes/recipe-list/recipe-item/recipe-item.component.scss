@@ -1,0 +1,14 @@
+.r-item {
+  border: 1px solid lightgray;
+  border-bottom: 0;
+  .media-body {
+    padding: 0.5rem 1rem 0 0.5rem;
+  }
+  &.active {
+    background-color: lightblue;
+  }
+  &:hover {
+    background-color: lightblue;
+  }
+}
+
