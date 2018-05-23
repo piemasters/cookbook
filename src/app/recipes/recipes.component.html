@@ -1,8 +1,11 @@
-<div class="row">
-  <div class="col-md-5">
+<div class="recipes-container row">
+  <nav id="sidebar" class="recipe-list-container col-lg-4 col-md-5 col-sm-6" [ngbCollapse]="isCollapsed">
     <app-recipe-list></app-recipe-list>
-  </div>
-  <div class="col-md-7">
+  </nav>
+  <div [ngClass]="{ 'col-lg-8 col-md-7 col-sm-6' : !isCollapsed , 'col-sm-12': isCollapsed }">
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">Toggle</span>
+    </button>
     <router-outlet></router-outlet>
   </div>
 </div>
