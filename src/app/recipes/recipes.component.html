@@ -1,9 +1,14 @@
-<div class="recipes-container row">
-  <nav id="sidebar" class="recipe-list-container col-lg-4 col-md-5 col-sm-6" [ngbCollapse]="isCollapsed">
-    <app-recipe-list></app-recipe-list>
+<div class="recipes-container row" (selectRecipe)="getRecipe($event)">
+  <nav id="sidebar" class="recipe-list-container col-lg-4 col-md-5 col-sm-12" [ngbCollapse]="isCollapsed"
+       [hidden]="!(!small_screen || small_screen && !isCollapsed)">
+    <button *ngIf="!isCollapsed" class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">Toggle</span>
+    </button>
+    <app-recipe-list (messageEvent)="getRecipe($event)"></app-recipe-list>
   </nav>
-  <div [ngClass]="{ 'col-lg-8 col-md-7 col-sm-6' : !isCollapsed , 'col-sm-12': isCollapsed }">
-    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
+  <div class="recipe-container col-lg-8 col-md-7 col-sm-12"
+       [hidden]="!(!small_screen || small_screen && isCollapsed)">
+    <button *ngIf="isCollapsed" class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">Toggle</span>
     </button>
     <router-outlet></router-outlet>

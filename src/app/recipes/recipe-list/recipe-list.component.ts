@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -13,6 +13,8 @@ import { FeatureState } from '../store/recipe.reducers';
 })
 export class RecipeListComponent implements OnInit {
   recipeState: Observable<fromRecipe.State>;
+  @Output() messageEvent = new EventEmitter<string>();
+
 
   constructor(
     private router: Router,
@@ -25,6 +27,10 @@ export class RecipeListComponent implements OnInit {
 
   onNewRecipe() {
     this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
+  selectRecipe() {
+    this.messageEvent.emit('Recipe Selected');
   }
 
 
