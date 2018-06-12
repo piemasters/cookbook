@@ -1,0 +1,33 @@
+.recipe-cover-image {
+  height: 50vh;
+  display:block;
+  margin:auto;
+}
+
+.cover-image-container {
+
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+.title-container,
+.description-container,
+.ingredients-images-container,
+.ingredients-list-container,
+.nutrition-container {
+  border-bottom: 2px dashed blue;
+  padding: 1rem 0;
+}
+
+.recipe-description {
+  border-right: 2px dashed blue;
+}
+
+.image-ingredient {
+  display:inline;
+}
+
+.ingredient-image {
+  height: 100px;
+  width: 100px;
+}
