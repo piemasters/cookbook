@@ -20,20 +20,18 @@
   background-color: white;
   border-radius: 100px;
   height: 4rem;
-  padding-top: 0.8rem;
-  width: 4rem;
-  position: absolute;
   left: 2rem;
+  padding-top: 0.8rem;
+  position: absolute;
   top: 2rem;
+  width: 4rem;
   &:hover {
     background-color: slategrey;
   }
 }
 
 .close-sidebar {
-
   float: right;
-
   padding-top: 0.8rem;
   width: 4rem;
   &:hover {
