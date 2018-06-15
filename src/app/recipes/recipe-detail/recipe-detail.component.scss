@@ -1,7 +1,8 @@
-.recipe-cover-image {
-  height: 50vh;
-  display:block;
-  margin:auto;
+.full-width-image {
+  background: no-repeat 50%/cover;
+  display: block;
+  height: 600px;
+  width: 100%;
 }
 
 .cover-image-container {

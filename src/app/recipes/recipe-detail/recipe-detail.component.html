@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-xs-12 cover-image-container">
-    <img [src]="(recipeState | async).recipes[id].imagePath" alt="{{ (recipeState | async).recipes[id].name }}"
-         class="recipe-cover-image img-responsive">
+    <div class="full-width-image" [style.background-image]="'url(' + (recipeState | async).recipes[id].imagePath + ')'" ></div>
   </div>
 </div>
 

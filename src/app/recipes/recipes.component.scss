@@ -7,9 +7,36 @@
 
 .recipes-container {
   height: 100%;
+  overflow: auto;
 }
 
 .recipe-container {
   height: 100%;
+  overflow: auto;
   padding: 1rem 2rem;
+}
+
+.open-sidebar {
+  background-color: white;
+  border-radius: 100px;
+  height: 4rem;
+  padding-top: 0.8rem;
+  width: 4rem;
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  &:hover {
+    background-color: slategrey;
+  }
+}
+
+.close-sidebar {
+
+  float: right;
+
+  padding-top: 0.8rem;
+  width: 4rem;
+  &:hover {
+    color: pink;
+  }
 }

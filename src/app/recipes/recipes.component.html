@@ -1,14 +1,15 @@
 <div class="recipes-container row" (selectRecipe)="getRecipe($event)">
   <nav id="sidebar" class="recipe-list-container col-lg-4 col-md-5 col-sm-12" [ngbCollapse]="isCollapsed"
-       [hidden]="!(!small_screen || small_screen && !isCollapsed)">
-    <button *ngIf="!isCollapsed" class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
+       [hidden]="!(!small_screen || small_screen && !isCollapsed)" [class.open]="!isCollapsed">
+    <button *ngIf="!isCollapsed" class="navbar-toggler close-sidebar" type="button" (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
       <i class="navbar-toggler-icon fa fa-chevron-left"></i>
     </button>
     <app-recipe-list (messageEvent)="getRecipe($event)"></app-recipe-list>
   </nav>
-  <div class="recipe-container col-lg-8 col-md-7 col-sm-12"
+  <div class="recipe-container"
+       [ngClass]="{'col-lg-8 col-md-7 col-sm-12': !isCollapsed, 'col-sm-12': isCollapsed}"
        [hidden]="!(!small_screen || small_screen && isCollapsed)">
-    <button *ngIf="isCollapsed" class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
+    <button *ngIf="isCollapsed" class="navbar-toggler open-sidebar" type="button" (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
       <i class="navbar-toggler-icon fa fa-bars"></i>
     </button>
     <router-outlet></router-outlet>
