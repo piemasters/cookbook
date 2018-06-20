@@ -4,66 +4,91 @@
   </div>
 </div>
 
-<div class="row title-container">
-  <div class="col-xs-10">
-    <h2>{{ (recipeState | async).recipes[id].name }}</h2>
+<div class="card">
+  <div class="card-header">
+    <div class="row title-container">
+      <div class="col-sm-9">
+        <h2>{{ (recipeState | async).recipes[id].name }}</h2>
+        <h3>{{ (recipeState | async).recipes[id].headline }}</h3>
+      </div>
+      <div class="col-sm-3">
+        <div class="btn-group dropdown" ngbDropdown>
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
+            Manage Recipe <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownManage" ngbDropdownMenu>
+            <li class="dropdown-item"><a (click)="onAddToShoppingList()" style="cursor: pointer">To Shopping List</a></li>
+            <li class="dropdown-item" (click)="onEditRecipe()" style="cursor: pointer"><a>Edit Recipe</a></li>
+            <li class="dropdown-item" style="cursor: pointer" (click)="onDeleteRecipe()"><a>Delete Recipe</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-xs-2">
-    <div class="btn-group dropdown" ngbDropdown>
-      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
-        Manage Recipe <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownManage" ngbDropdownMenu>
-        <li class="dropdown-item"><a (click)="onAddToShoppingList()" style="cursor: pointer">To Shopping List</a></li>
-        <li class="dropdown-item" (click)="onEditRecipe()" style="cursor: pointer"><a>Edit Recipe</a></li>
-        <li class="dropdown-item" style="cursor: pointer" (click)="onDeleteRecipe()"><a>Delete Recipe</a></li>
-      </ul>
+  <div class="card-body">
+    <div class="row description-container">
+      <div class="col-md-8 recipe-description">
+        <p>{{ (recipeState | async).recipes[id].description }}</p>
+        <p>Allergens: {{ (recipeState | async).recipes[id].allergens }}</p>
+        <p>Tags {{ (recipeState | async).recipes[id].tags }}</p>
+      </div>
+      <div class="col-md-4 recipe-tags">
+        <p>Serves {{ (recipeState | async).recipes[id].servingSize }}</p>
+        <p>Preparation Time {{ (recipeState | async).recipes[id].totalTime }} minutes</p>
+        <p>Rating {{ (recipeState | async).recipes[id].averageRating }} ({{ (recipeState | async).recipes[id].ratingsCount }})</p>
+
+      </div>
     </div>
   </div>
 </div>
 
-<div class="row description-container">
-  <div class="col-md-8 recipe-description">
-    {{ (recipeState | async).recipes[id].description }}
+<div class="card">
+  <div class="card-header">
+    <h3>Ingredients</h3>
   </div>
-  <div class="col-md-4 recipe-tags">
-    <p>Cooking Time</p>
-    <p>Rating</p>
-    <p>Tags</p>
+  <div class="card-body">
+    <div class="row ingredients-list-container">
+      <div class="col-xs-12">
+        <ul class="list-inline">
+          <li class="list-inline-item" *ngFor="let ingredient of (recipeState | async).recipes[id].ingredients">
+            <div class="r-item media">
+              <img class="mr-2 ingredient-image" [src]="ingredient.imagePath" [alt]="ingredient.name">
+              <div class="media-body">
+                <h4 class="list-group-item-heading ">{{ ingredient.amount }}{{ingredient.unit}}</h4>
+                <p class="list-group-item-text ">{{ ingredient.name }}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="row ingredients-images-container">
-  <div class="col-xs-12">
-    <ul class="list-inline">
-      <li class="list-inline-item" *ngFor="let ingredient of (recipeState | async).recipes[id].ingredients">
-        <img [src]="(recipeState | async).recipes[id].imagePath" class="ingredient-image img-responsive">
-        {{ ingredient.name }}
+<div class="card steps-container">
+  <div class="card-header">
+    Steps
+  </div>
+  <div class="card-body">
+    <ul>
+      <li class="list-inline-item" *ngFor="let step of (recipeState | async).recipes[id].steps">
+        <img class="mr-2 ingredient-image" [src]="step.imagePath" [alt]="step.imageCaption">
+        {{step.instructions}}
       </li>
     </ul>
   </div>
 </div>
 
-<div class="row ingredients-list-container">
-  <div class="col-xs-12">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let ingredient of (recipeState | async).recipes[id].ingredients">
-        {{ ingredient.name }} - {{ ingredient.amount }}
-      </li>
-    </ul>
-  </div>
-</div>
-
-<div class="row nutrition-container">
-  <div class="col-xs-12">
+<div class="card nutrition-container">
+  <div class="card-header">
     Nutrition
   </div>
-</div>
-
-
-<div class="row steps-container">
-  <div class="col-xs-12">
-    Steps
+  <div class="card-body">
+    <ul>
+      <li class="list-inline-item" *ngFor="let nutrition of (recipeState | async).recipes[id].nutrition">
+        {{nutrition.name}} {{nutrition.amount}} {{nutrition.unit}}
+      </li>
+    </ul>
   </div>
 </div>
 

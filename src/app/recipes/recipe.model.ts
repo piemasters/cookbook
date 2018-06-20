@@ -1,15 +1,39 @@
 import { Ingredient } from '../shared/ingredient.model';
+import { RecipeStep } from './recipe-step.model';
+import { Nutrition } from '../shared/nutrition.model';
 
 export class Recipe {
   public name: string;
+  public headline: string;
   public description: string;
   public imagePath: string;
   public ingredients: Ingredient[];
+  public totalTime: number;
+  public servingSize: number;
+  public nutrition: Nutrition[];
+  public allergens: string[];
+  public steps: RecipeStep[];
+  public tags: string[];
+  public averageRating: number;
+  public ratingsCount: number;
+  public favoritesCount: number;
 
-  constructor(name: string, desc: string, imagePath: string, ingredients: Ingredient[]) {
+  constructor(name: string, headline: string, desc: string, imagePath: string, ingredients: Ingredient[], totalTime: number,
+              servingSize: number, nutrition: Nutrition[], allergens: string[], steps: RecipeStep[], tags: string[],
+              averageRating: number, ratingsCount: number, favoritesCount: number) {
     this.name = name;
+    this.headline = headline;
     this.description = desc;
     this.imagePath = imagePath;
     this.ingredients = ingredients;
+    this.totalTime = totalTime;
+    this.servingSize = servingSize;
+    this.nutrition = nutrition;
+    this.allergens = allergens;
+    this.steps = steps;
+    this.tags = tags;
+    this.averageRating = averageRating;
+    this.ratingsCount = ratingsCount;
+    this.favoritesCount = favoritesCount;
   }
 }

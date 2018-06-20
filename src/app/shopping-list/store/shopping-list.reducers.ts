@@ -9,8 +9,8 @@ export interface State {
 
 const initialState: State = {
   ingredients: [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 10),
+    new Ingredient('Apples', 500, 'https://img.tesco.com/Groceries/pi/000/0260950000000/IDShot_540x540.jpg', 'g'),
+    new Ingredient('Tomatoes', 10, 'https://www.thompson-morgan.com/product_images/100/zoom/z-TOMA-TM54735-A_h.jpg', 'g'),
   ],
   editedIngredient: null,
   editedIngredientIndex: -1
