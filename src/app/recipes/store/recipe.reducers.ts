@@ -34,8 +34,11 @@ const initialState: State = {
        'Peanuts', 'Gluten', 'Milk', 'Nuts', 'Celery', 'Sesame'
      ],
       [
-        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking')
-      ],
+        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
+        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
+        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
+        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
+        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking')      ],
       ['food', 'test'],
       5,
       4,
@@ -61,6 +64,10 @@ const initialState: State = {
         'Peanuts', 'Gluten', 'Milk', 'Nuts', 'Celery', 'Sesame'
       ],
       [
+        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
+        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
+        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
+        new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
         new RecipeStep('These are the instructions', 'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking')
       ],
       ['food', 'test'],

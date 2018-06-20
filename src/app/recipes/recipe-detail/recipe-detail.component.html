@@ -1,18 +1,18 @@
-<div class="row">
-  <div class="col-xs-12 cover-image-container">
+<div id="cover-image-container" class="row">
+  <div class="col-sm-12 background-image-container">
     <div class="full-width-image" [style.background-image]="'url(' + (recipeState | async).recipes[id].imagePath + ')'" ></div>
   </div>
 </div>
 
-<div class="card">
+<div id="description-card" class="card">
   <div class="card-header">
-    <div class="row title-container">
-      <div class="col-sm-9">
-        <h2>{{ (recipeState | async).recipes[id].name }}</h2>
-        <h3>{{ (recipeState | async).recipes[id].headline }}</h3>
+    <div class="row equal title-container">
+      <div id="recipe-title-column" class="col-sm-9">
+        <h2 id="recipe-name">{{ (recipeState | async).recipes[id].name }}</h2>
+        <h4 id="recipe-headline">{{ (recipeState | async).recipes[id].headline }}</h4>
       </div>
-      <div class="col-sm-3">
-        <div class="btn-group dropdown" ngbDropdown>
+      <div id="recipe-details-column" class="col-sm-3 test">
+        <div id="manage-recipe-button" class="btn-group dropdown" ngbDropdown>
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
             Manage Recipe <span class="caret"></span>
           </button>
@@ -27,16 +27,21 @@
   </div>
   <div class="card-body">
     <div class="row description-container">
-      <div class="col-md-8 recipe-description">
-        <p>{{ (recipeState | async).recipes[id].description }}</p>
-        <p>Allergens: {{ (recipeState | async).recipes[id].allergens }}</p>
-        <p>Tags {{ (recipeState | async).recipes[id].tags }}</p>
+      <div class="col-md-8">
+        <p id="recipe-description">{{ (recipeState | async).recipes[id].description }}</p>
+        <p id="recipe-allegens">
+          <b>Allergens: </b>
+          <span> {{(recipeState | async).recipes[id].allergens.join(", ")}} </span>
+        </p>
+        <p id="recipe-tags">
+          <b>Tags: </b>
+          <span> {{(recipeState | async).recipes[id].tags.join(", ")}} </span>
+        </p>
       </div>
       <div class="col-md-4 recipe-tags">
-        <p>Serves {{ (recipeState | async).recipes[id].servingSize }}</p>
-        <p>Preparation Time {{ (recipeState | async).recipes[id].totalTime }} minutes</p>
-        <p>Rating {{ (recipeState | async).recipes[id].averageRating }} ({{ (recipeState | async).recipes[id].ratingsCount }})</p>
-
+        <p><b>Serves: </b> {{ (recipeState | async).recipes[id].servingSize }}</p>
+        <p><b>Preparation Time: </b> {{ (recipeState | async).recipes[id].totalTime }} minutes</p>
+        <p><b>Rating: </b> {{ (recipeState | async).recipes[id].averageRating }}/5 - ({{ (recipeState | async).recipes[id].ratingsCount }} votes)</p>
       </div>
     </div>
   </div>
@@ -70,8 +75,8 @@
     Steps
   </div>
   <div class="card-body">
-    <ul>
-      <li class="list-inline-item" *ngFor="let step of (recipeState | async).recipes[id].steps">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let step of (recipeState | async).recipes[id].steps">
         <img class="mr-2 ingredient-image" [src]="step.imagePath" [alt]="step.imageCaption">
         {{step.instructions}}
       </li>
