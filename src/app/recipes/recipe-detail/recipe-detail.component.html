@@ -59,7 +59,7 @@
             <div class="r-item media">
               <img class="mr-2 ingredient-image" [src]="ingredient.imagePath" [alt]="ingredient.name">
               <div class="media-body">
-                <h4 class="list-group-item-heading ">{{ ingredient.amount }}{{ingredient.unit}}</h4>
+                <h4 class="list-group-item-heading ">{{ ingredient.amount }} {{ingredient.unit}}</h4>
                 <p class="list-group-item-text ">{{ ingredient.name }}</p>
               </div>
             </div>
@@ -78,7 +78,7 @@
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let step of (recipeState | async).recipes[id].steps">
         <img class="mr-2 ingredient-image" [src]="step.imagePath" [alt]="step.imageCaption">
-        {{step.instructions}}
+        {{step.stepNumber}} {{step.instructions}}
       </li>
     </ul>
   </div>

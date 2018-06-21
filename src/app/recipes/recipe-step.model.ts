@@ -1,3 +1,3 @@
 export class RecipeStep {
-  constructor(public instructions: string, public imagePath: string, public imageCaption: string) {}
+  constructor(public stepNumber: number, public instructions: string, public imagePath: string, public imageCaption: string) {}
 }
