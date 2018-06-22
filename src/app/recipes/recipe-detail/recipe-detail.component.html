@@ -51,14 +51,13 @@
   </div>
 </div>
 
-<div class="card">
+<div id="ingredients-card" class="card">
   <div class="card-header">
     <h3>Ingredients</h3>
   </div>
   <div class="card-body">
     <div class="row ingredients-list-container">
-
-        <ul class="list-inline ingredient-list">
+        <ul id="ingredient-list" class="list-inline">
           <li class="list-inline-item ingredient" *ngFor="let ingredient of (recipeState | async).recipes[id].ingredients">
             <div class="r-item media">
               <img class="mr-2 ingredient-image" [src]="ingredient.imagePath" [alt]="ingredient.name">
@@ -69,33 +68,36 @@
             </div>
           </li>
         </ul>
-
     </div>
   </div>
 </div>
 
-<div class="card steps-container">
+<div id="steps-card" class="card">
   <div class="card-header">
     Steps
   </div>
   <div class="card-body">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let step of (recipeState | async).recipes[id].steps">
-        <img class="mr-2 ingredient-image" [src]="step.imagePath" [alt]="step.imageCaption">
-        {{step.stepNumber}} {{step.instructions}}
+    <ul id="steps-list" class="list-unstyled">
+      <li class="media step" *ngFor="let step of (recipeState | async).recipes[id].steps">
+        <img class="mr-2 step-image" [src]="step.imagePath" [alt]="step.imageCaption">
+        <div class="media-body">
+          <h5 class="mt-0">Step {{step.stepNumber}}</h5>
+           {{step.instructions}}
+        </div>
+
       </li>
     </ul>
   </div>
 </div>
 
-<div class="card nutrition-container">
+<div id="nutrition-card" class="card">
   <div class="card-header">
     Nutrition
   </div>
   <div class="card-body">
-    <ul>
-      <li class="list-inline-item" *ngFor="let nutrition of (recipeState | async).recipes[id].nutrition">
-        {{nutrition.name}} {{nutrition.amount}} {{nutrition.unit}}
+    <ul id="nutrition-list">
+      <li class="list-inline-item nutrition-item" *ngFor="let nutrition of (recipeState | async).recipes[id].nutrition">
+        <b>{{nutrition.name}}</b> {{nutrition.amount}} {{nutrition.unit}}
       </li>
     </ul>
   </div>

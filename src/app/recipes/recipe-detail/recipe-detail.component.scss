@@ -18,7 +18,9 @@ h4 {
 }
 
 #cover-image-container {
+  margin: 0;
   .background-image-container {
+    padding: 0;
     width: 100%;
     .full-width-image {
       background: no-repeat 50%/cover;
@@ -45,20 +47,39 @@ h4 {
   }
 }
 
-.image-ingredient {
-  display:inline;
+#ingredients-card {
+  #ingredient-list {
+    text-align: center;
+    .ingredient {
+      padding: 1rem;
+      width: 18rem;
+      .ingredient-image {
+        height: 70px;
+        width: 70px;
+      }
+    }
+  }
 }
 
-.ingredient-image {
-  height: 70px;
-  width: 70px;
+#steps-card {
+  #steps-list {
+    .step {
+      padding: 0.5rem 0;
+      .step-image {
+        height: 120px;
+        width: 120px;
+      }
+    }
+  }
 }
 
-.ingredient-list {
-  text-align: center;
+#nutrition-card {
+  #nutrition-list {
+    text-align: center;
+    .nutrition-item {
+      padding: 0.2rem;
+      width: 12rem;
+    }
+  }
 }
 
-.ingredient {
-  padding: 1rem;
-  width: 18rem;
-}

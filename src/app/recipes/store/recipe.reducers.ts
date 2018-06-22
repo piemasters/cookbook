@@ -140,8 +140,8 @@ const initialState: State = {
         new RecipeStep(
           3,
           'Heat 1tablespoon of oil in a wide saucepan over a medium heat, add ' +
-          'the sliced spring onion, pepper and coriander stalks and fry for 4to ' +
-          '5minutes, until softened, stirring occasionally.',
+          'the sliced spring onion, pepper and coriander stalks and fry for 4 to ' +
+          '5 minutes, until softened, stirring occasionally.',
           '',
           ''
         ),
