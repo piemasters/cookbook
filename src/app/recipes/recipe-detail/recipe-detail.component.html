@@ -41,7 +41,11 @@
       <div class="col-md-4 recipe-tags">
         <p><b>Serves: </b> {{ (recipeState | async).recipes[id].servingSize }}</p>
         <p><b>Preparation Time: </b> {{ (recipeState | async).recipes[id].totalTime }} minutes</p>
-        <p><b>Rating: </b> {{ (recipeState | async).recipes[id].averageRating }}/5 - ({{ (recipeState | async).recipes[id].ratingsCount }} votes)</p>
+        <p>
+          <b>Rating:
+          </b> <ngb-rating [rate]="(recipeState | async).recipes[id].averageRating"></ngb-rating>
+          - ({{ (recipeState | async).recipes[id].ratingsCount }} votes)</p>
+
       </div>
     </div>
   </div>
@@ -53,9 +57,9 @@
   </div>
   <div class="card-body">
     <div class="row ingredients-list-container">
-      <div class="col-xs-12">
-        <ul class="list-inline">
-          <li class="list-inline-item" *ngFor="let ingredient of (recipeState | async).recipes[id].ingredients">
+
+        <ul class="list-inline ingredient-list">
+          <li class="list-inline-item ingredient" *ngFor="let ingredient of (recipeState | async).recipes[id].ingredients">
             <div class="r-item media">
               <img class="mr-2 ingredient-image" [src]="ingredient.imagePath" [alt]="ingredient.name">
               <div class="media-body">
@@ -65,7 +69,7 @@
             </div>
           </li>
         </ul>
-      </div>
+
     </div>
   </div>
 </div>

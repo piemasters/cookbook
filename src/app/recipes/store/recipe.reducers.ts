@@ -193,7 +193,7 @@ const initialState: State = {
         )
       ],
       ['food', 'test'],
-      5,
+      3,
       4,
       3
     ),

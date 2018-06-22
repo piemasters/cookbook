@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { take } from 'rxjs/operators';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 import * as ShoppingListActions from '../../shopping-list/store/shopping-list.actions';
 import * as fromRecipe from '../store/recipe.reducers';
 import * as RecipeActions from '../store/recipe.actions';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.scss']
+  styleUrls: ['./recipe-detail.component.scss'],
+  providers: [ NgbRatingConfig ]
 })
 export class RecipeDetailComponent implements OnInit {
   recipeState: Observable<fromRecipe.State>;
@@ -20,8 +23,11 @@ export class RecipeDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private store: Store<fromRecipe.FeatureState>
-  ) { }
+    private store: Store<fromRecipe.FeatureState>,
+    private ngbconfig: NgbRatingConfig
+  ) {
+    ngbconfig.max = 5;
+  }
 
   ngOnInit() {
     this.route.params.subscribe(

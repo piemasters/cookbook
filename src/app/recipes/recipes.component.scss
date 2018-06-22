@@ -18,14 +18,16 @@
 }
 
 .open-sidebar {
+  box-shadow: 2px 2px 2px gray;
   background-color: white;
   border-radius: 100px;
   height: 4rem;
   left: 2rem;
   padding-top: 0.8rem;
-  position: absolute;
-  top: 2rem;
+  position: fixed;
+  top: 4rem;
   width: 4rem;
+  z-index: 5;
   &:hover {
     background-color: slategrey;
   }
