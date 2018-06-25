@@ -6,6 +6,35 @@ html {
   height: 100%;
 }
 body {
+  font-size: 0.8rem;
   height: 100%;
   padding-top: 56px;
+}
+
+h2, h3, h4 {
+  font-family: Roboto, sans-serif;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+.card {
+  margin: 0.6rem;
+  .card-header {
+    background-color: white;
+  }
+}
+
+@media only screen and (min-width: $md) {
+  body {
+    font-size: 1rem;
+  }
+  .card {
+    margin: 2rem;
+  }
 }

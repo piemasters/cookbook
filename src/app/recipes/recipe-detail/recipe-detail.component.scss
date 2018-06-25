@@ -1,21 +1,4 @@
-h2, h3, h4 {
-  font-family: Roboto, sans-serif;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h4 {
-  font-size: 1rem;
-}
-
-.card {
-  margin: 2rem;
-  .card-header {
-    background-color: white;
-  }
-}
+@import 'variables';
 
 #cover-image-container {
   margin: 0;
@@ -27,11 +10,6 @@ h4 {
       display: block;
       height: 300px;
       width: 100%;
-    }
-    @media only screen and (min-width: 900px) {
-      .full-width-image {
-        height: 600px;
-      }
     }
   }
 }
@@ -79,6 +57,16 @@ h4 {
     .nutrition-item {
       padding: 0.2rem;
       width: 12rem;
+    }
+  }
+}
+
+@media only screen and (min-width: $md) {
+  #cover-image-container {
+    .background-image-container {
+      .full-width-image {
+        height: 450px;
+      }
     }
   }
 }
