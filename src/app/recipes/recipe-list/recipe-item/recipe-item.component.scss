@@ -10,17 +10,19 @@
     max-width: 150px;
   }
   .media-body {
-    height: 100%;
-    overflow: hidden;
-    padding: 0.5rem 1rem 0.5rem 0;
-    text-overflow: ellipsis;
+    height: 100px;
+    padding: 10px 1rem 10px 0;
   }
-  h4 {
+  .list-group-item-heading  {
+    height: 20px;
+    margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  p {
+  .list-group-item-text {
+    height: 50px;
+    line-height: 25px;
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
