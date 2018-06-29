@@ -36,5 +36,10 @@ h4 {
   }
   .card {
     margin: 2rem;
+    .card-header {
+      h3 {
+        margin: 0;
+      }
+    }
   }
 }
