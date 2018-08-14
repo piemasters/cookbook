@@ -35,6 +35,22 @@ export class RecipeEditComponent implements OnInit {
     return <FormArray>this.recipeForm.get('ingredients');
   }
 
+  get formAllergens() {
+    return <FormArray>this.recipeForm.get('allegerns');
+  }
+
+  get formTags() {
+    return <FormArray>this.recipeForm.get('tags');
+  }
+
+  get formSteps() {
+    return <FormArray>this.recipeForm.get('steps');
+  }
+
+  get formNutrition() {
+    return <FormArray>this.recipeForm.get('nutrition');
+  }
+
   onSubmit() {
     if (this.editMode) {
       this.store.dispatch(new RecipeActions.UpdateRecipe({
@@ -51,6 +67,7 @@ export class RecipeEditComponent implements OnInit {
     (<FormArray>this.recipeForm.get('ingredients')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required),
+        'headline': new FormControl(null, Validators.required),
         'amount': new FormControl(null, [
           Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/)
@@ -69,6 +86,7 @@ export class RecipeEditComponent implements OnInit {
 
   private initForm() {
     let recipeName = '';
+    let recipeHeadline = '';
     let recipeImagePath = '';
     let recipeDescription = '';
     const recipeIngredients = new FormArray([]);
@@ -81,6 +99,7 @@ export class RecipeEditComponent implements OnInit {
         .subscribe((recipeState: fromRecipe.State) => {
           const recipe = recipeState.recipes[this.id];
           recipeName = recipe.name;
+          recipeHeadline = recipe.headline;
           recipeImagePath = recipe.imagePath;
           recipeDescription = recipe.description;
           if (recipe['ingredients']) {
@@ -101,6 +120,7 @@ export class RecipeEditComponent implements OnInit {
 
     this.recipeForm = new FormGroup({
       'name': new FormControl(recipeName, Validators.required),
+      'headline': new FormControl(recipeHeadline, Validators.required),
       'imagePath': new FormControl(recipeImagePath, Validators.required),
       'description': new FormControl(recipeDescription, Validators.required),
       'ingredients': recipeIngredients
