@@ -89,6 +89,9 @@ export class RecipeEditComponent implements OnInit {
     let recipeHeadline = '';
     let recipeImagePath = '';
     let recipeDescription = '';
+    let totalTime = 0;
+    let servingSize = 0;
+    const recipeNutritionList = new FormArray([]);
     const recipeIngredients = new FormArray([]);
 
     if (this.editMode) {
@@ -102,6 +105,22 @@ export class RecipeEditComponent implements OnInit {
           recipeHeadline = recipe.headline;
           recipeImagePath = recipe.imagePath;
           recipeDescription = recipe.description;
+          servingSize = recipe.servingSize;
+          totalTime = recipe.totalTime;
+          if (recipe['nutrition']) {
+              recipeNutritionList.push(
+                new FormGroup({
+                  'calories': new FormControl(recipe.nutrition.calories, Validators.required),
+                  'fat': new FormControl(recipe.nutrition.fat, Validators.required),
+                  'saturates': new FormControl(recipe.nutrition.saturates, Validators.required),
+                  'protein': new FormControl(recipe.nutrition.protein, Validators.required),
+                  'carbs': new FormControl(recipe.nutrition.carbs, Validators.required),
+                  'sugar': new FormControl(recipe.nutrition.sugar, Validators.required),
+                  'salt': new FormControl(recipe.nutrition.salt, Validators.required),
+                  'fibre': new FormControl(recipe.nutrition.fibre, Validators.required),
+              })
+            );
+          }
           if (recipe['ingredients']) {
             for (const ingredient of recipe.ingredients) {
               recipeIngredients.push(
@@ -123,6 +142,9 @@ export class RecipeEditComponent implements OnInit {
       'headline': new FormControl(recipeHeadline, Validators.required),
       'imagePath': new FormControl(recipeImagePath, Validators.required),
       'description': new FormControl(recipeDescription, Validators.required),
+      'totalTime': new FormControl(totalTime, Validators.required),
+      'servingSize': new FormControl(servingSize, Validators.required),
+      'nutrition': recipeNutritionList,
       'ingredients': recipeIngredients
     });
   }
