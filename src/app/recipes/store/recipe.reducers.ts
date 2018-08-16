@@ -145,7 +145,7 @@ const initialState: State = {
         ),
         new RecipeStep(
           3,
-          'Heat 1tablespoon of oil in a wide saucepan over a medium heat, add ' +
+          'Heat 1 tablespoon of oil in a wide saucepan over a medium heat, add ' +
           'the sliced spring onion, pepper and coriander stalks and fry for 4 to ' +
           '5 minutes, until softened, stirring occasionally.',
           '',
@@ -156,14 +156,14 @@ const initialState: State = {
           'Meanwhile, place the beef into a mixing bowl, add the sweet smoked ' +
           'paprika, chilli powder (add a little less if you can’t handle the heat!) and ' +
           'a good pinch of sea salt and black pepper and mix together well. Using ' +
-          'wet hands, roll the mixture into 6little balls.',
+          'wet hands, roll the mixture into 6 little balls.',
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Recipes%2FChilli%20Con%20Carne%2FStep%204.png?alt=media&token=5776ad44-0717-423c-807a-cf437971d9b3',
-          'roll the mixture into 6little balls'
+          'roll the mixture into 6 little balls'
         ),
         new RecipeStep(
           5,
-          'Add the tomatoes to the saucepan along with ½a tin’s worth of water, ' +
+          'Add the tomatoes to the saucepan along with a tin’s worth of water, ' +
           'breaking the tomatoes up with a spoon as you go. Bring to the boil then drain and add the black beans.',
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Recipes%2FChilli%20Con%20Carne%2FStep%205.png?alt=media&token=2d8ef211-a17c-481d-8a6d-1bcacc21f9a9',
@@ -172,22 +172,22 @@ const initialState: State = {
         new RecipeStep(
           6,
           'Preheat the grill to high. Prick the chillies and place on a baking tray under the hot grill for ' +
-          '10minutes, or until blackened, turning often.',
+          '10 minutes, or until blackened, turning often.',
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Recipes%2FChilli%20Con%20Carne%2FStep%206.png?alt=media&token=20b2e281-2333-4e0e-8b27-26175f441a32',
           'place chillies on a baking tray'
         ),
         new RecipeStep(
           7,
-          'Meanwhile, heat ½a tablespoon of oil in a frying pan over a medium ' +
-          'heat, add the meatballs and cumin seeds, then fry for 4minutes, or until ' +
+          'Meanwhile, heat a tablespoon of oil in a frying pan over a medium ' +
+          'heat, add the meatballs and cumin seeds, then fry for 4 minutes, or until ' +
           'browned all over, stirring often.',
           '',
           ''
         ),
         new RecipeStep(
           8,
-          'Add the meatballs to the tomato sauce and cook for 6to 8minutes, ' +
+          'Add the meatballs to the tomato sauce and cook for 6 to 8 minutes, ' +
           'or until the sauce is thick and the meatballs are cooked through, stirring occasionally.',
           '',
           ''
@@ -196,7 +196,7 @@ const initialState: State = {
           9,
           'Fold the chopped coriander leaves through the rice, then divide ' +
           'between your plates. Top each with the meatballs and beans, ' +
-          '1blackened chilli, 1tablespoon of yoghurt, and 1wedge of lime for squeezing over.',
+          '1 blackened chilli, 1 tablespoon of yoghurt, and 1 wedge of lime for squeezing over.',
           '',
           ''
         )

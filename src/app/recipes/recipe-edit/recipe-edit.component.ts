@@ -101,6 +101,24 @@ export class RecipeEditComponent implements OnInit {
     (<FormArray>this.recipeForm.get('tags')).removeAt(index);
   }
 
+  onAddStep() {
+    (<FormArray>this.recipeForm.get('steps')).push(
+      new FormGroup({
+        'number': new FormControl(null, [
+          Validators.required,
+          Validators.pattern(/^[1-9]+[0-9]*$/)
+        ]),
+        'instructions': new FormControl(null, Validators.required),
+        'imagePath': new FormControl(null),
+        'imageCaption': new FormControl(null)
+      })
+    );
+  }
+
+  onDeleteStep(index: number) {
+    (<FormArray>this.recipeForm.get('steps')).removeAt(index);
+  }
+
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
@@ -126,6 +144,7 @@ export class RecipeEditComponent implements OnInit {
     const recipeIngredients = new FormArray([]);
     const recipeAllergens = new FormArray([]);
     const recipeTags = new FormArray([]);
+    const recipeSteps = new FormArray([]);
 
     if (this.editMode) {
       this.store.select('recipes')
@@ -157,6 +176,22 @@ export class RecipeEditComponent implements OnInit {
               recipeTags.push(
                 new FormGroup({
                   'name': new FormControl(tag.name, Validators.required)
+                })
+              );
+            }
+          }
+
+          if (recipe['steps']) {
+            for (const step of recipe.steps) {
+              recipeSteps.push(
+                new FormGroup({
+                  'number': new FormControl(step.stepNumber, [
+                    Validators.required,
+                    Validators.pattern(/^[1-9]+[0-9]*$/)
+                  ]),
+                  'instructions': new FormControl(step.instructions, Validators.required),
+                  'imagePath': new FormControl(step.imagePath),
+                  'imageCaption': new FormControl(step.imageCaption)
                 })
               );
             }
@@ -199,7 +234,8 @@ export class RecipeEditComponent implements OnInit {
       }),
       'allergens': recipeAllergens,
       'tags': recipeTags,
-      'ingredients': recipeIngredients
+      'ingredients': recipeIngredients,
+      'steps': recipeSteps
     });
   }
 
