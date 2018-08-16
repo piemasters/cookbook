@@ -77,7 +77,7 @@ export class RecipeEditComponent implements OnInit {
     (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
-  onAddAllergens() {
+  onAddAllergen() {
     (<FormArray>this.recipeForm.get('allergens')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required)
@@ -85,7 +85,7 @@ export class RecipeEditComponent implements OnInit {
     );
   }
 
-  onDeleteAllergens(index: number) {
+  onDeleteAllergen(index: number) {
     (<FormArray>this.recipeForm.get('allergens')).removeAt(index);
   }
 

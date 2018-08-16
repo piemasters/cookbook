@@ -132,13 +132,13 @@
               <input type="text" class="form-control" formControlName="name">
             </div>
             <div class="col-xs-3">
-              <button class="btn btn-danger" type="button" (click)="onDeleteAllergens(i)">X</button>
+              <button class="btn btn-danger" type="button" (click)="onDeleteAllergen(i)">X</button>
             </div>
           </div>
           <hr>
           <div class="row">
             <div class="col-xs-12">
-              <button class="btn btn-success" (click)="onAddAllergens()" type="button">Add allergen</button>
+              <button class="btn btn-success" (click)="onAddAllergen()" type="button">Add allergen</button>
             </div>
           </div>
         </div>
@@ -168,29 +168,29 @@
         <!--</div>-->
       <!--</div>-->
 
-      <!--<h2>Nutrition</h2>-->
+      <h2>Nutrition</h2>
 
-      <!--<div class="row">-->
-        <!--<div class="col-xs-12" formArrayName="nutrition">-->
-          <!--<div class="row" *ngFor="let stepCtrl of formSteps.controls; let i = index" [formGroupName]="i" style="margin-top: 10px;">-->
-            <!--<div class="col-xs-8">-->
-              <!--<input type="text" class="form-control" formControlName="name">-->
-            <!--</div>-->
-            <!--<div class="col-xs-2">-->
-              <!--<input type="number" class="form-control" formControlName="value">-->
-            <!--</div>-->
-            <!--<div class="col-xs-3">-->
-              <!--<button class="btn btn-danger" type="button" (click)="onDeleteStep(i)">X</button>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<hr>-->
-          <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-              <!--<button class="btn btn-success" (click)="onAddStep()" type="button">Add step</button>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
+      <div class="row">
+        <div class="col-xs-12" formArrayName="nutrition">
+          <div class="row" *ngFor="let stepCtrl of formSteps.controls; let i = index" [formGroupName]="i" style="margin-top: 10px;">
+            <div class="col-xs-8">
+              <input type="text" class="form-control" formControlName="name">
+            </div>
+            <div class="col-xs-2">
+              <input type="number" class="form-control" formControlName="value">
+            </div>
+            <div class="col-xs-3">
+              <button class="btn btn-danger" type="button" (click)="onDeleteNutrition(i)">X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button class="btn btn-success" (click)="onAddNutrition()" type="button">Add step</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
       <h2>Ingredients</h2>

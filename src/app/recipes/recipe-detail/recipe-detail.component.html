@@ -31,7 +31,7 @@
         <p id="recipe-description">{{ (recipeState | async).recipes[id].description }}</p>
         <p id="recipe-allegens">
           <b>Allergens: </b>
-          <span> {{(recipeState | async).recipes[id].allergens.join(", ")}} </span>
+          <span *ngFor="let allergen of (recipeState | async).recipes[id].allergens; let isLast=last">{{allergen.name}}{{isLast ? '' : ', '}}</span>
         </p>
         <p id="recipe-tags">
           <b>Tags: </b>
