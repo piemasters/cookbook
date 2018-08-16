@@ -108,16 +108,7 @@ const initialState: State = {
       ],
       40,
       2,
-      [
-        new Nutrition('Calories', 654.2, 'kcal'),
-        new Nutrition('Fat', 16.8, 'g'),
-        new Nutrition('Sat Fat', 4.6, 'g'),
-        new Nutrition('Protein', 39.4, 'g'),
-        new Nutrition('Carbs', 86.8, 'g'),
-        new Nutrition('Sugar', 12.3, 'g'),
-        new Nutrition('Salt', 1, 'g'),
-        new Nutrition('Fibre', 17.2, 'g')
-      ],
+      new Nutrition(654.2, 16.8, 4.6, 39.4, 86.8, 12.3, 1, 17.2),
       [
        'Milk'
      ],
@@ -210,9 +201,7 @@ const initialState: State = {
       ],
       60,
       4,
-      [
-        new Nutrition('Energy', 2644, 'kJ')
-      ],
+      new Nutrition(654.2, 16.8, 4.6, 39.4, 86.8, 12.3, 1, 17.2),
       [
         'Peanuts', 'Gluten', 'Milk', 'Nuts', 'Celery', 'Sesame'
       ],

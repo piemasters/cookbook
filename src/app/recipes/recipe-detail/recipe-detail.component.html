@@ -96,8 +96,29 @@
   </div>
   <div class="card-body">
     <ul id="nutrition-list">
-      <li class="list-inline-item nutrition-item" *ngFor="let nutrition of (recipeState | async).recipes[id].nutrition">
-        <b>{{nutrition.name}}</b> {{nutrition.amount}} {{nutrition.unit}}
+      <li class="list-inline-item nutrition-item">
+        <b>Calories</b> {{(recipeState | async).recipes[id].nutrition.calories}} kcal
+      </li>
+      <li class="list-inline-item nutrition-item">
+        <b>Fat</b> {{(recipeState | async).recipes[id].nutrition.fat}} g
+      </li>
+      <li class="list-inline-item nutrition-item">
+        <b>Sat Fat</b> {{(recipeState | async).recipes[id].nutrition.saturates}} g
+      </li>
+      <li class="list-inline-item nutrition-item">
+        <b>Protein</b> {{(recipeState | async).recipes[id].nutrition.protein}} g
+      </li>
+      <li class="list-inline-item nutrition-item">
+        <b>Carbs</b> {{(recipeState | async).recipes[id].nutrition.carbs}} g
+      </li>
+      <li class="list-inline-item nutrition-item">
+        <b>Sugar</b> {{(recipeState | async).recipes[id].nutrition.sugar}} g
+      </li>
+      <li class="list-inline-item nutrition-item">
+        <b>Salt</b> {{(recipeState | async).recipes[id].nutrition.salt}} g
+      </li>
+      <li class="list-inline-item nutrition-item">
+        <b>Fibre</b> {{(recipeState | async).recipes[id].nutrition.fibre}} g
       </li>
     </ul>
   </div>

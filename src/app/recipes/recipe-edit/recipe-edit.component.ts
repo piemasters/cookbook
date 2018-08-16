@@ -6,6 +6,7 @@ import { take } from 'rxjs/operators';
 
 import * as RecipeActions from '../store/recipe.actions';
 import * as fromRecipe from '../store/recipe.reducers';
+import { Nutrition } from '../../shared/nutrition.model';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -45,10 +46,6 @@ export class RecipeEditComponent implements OnInit {
 
   get formSteps() {
     return <FormArray>this.recipeForm.get('steps');
-  }
-
-  get formNutrition() {
-    return <FormArray>this.recipeForm.get('nutrition');
   }
 
   onSubmit() {
@@ -91,6 +88,17 @@ export class RecipeEditComponent implements OnInit {
     let recipeDescription = '';
     let totalTime = 0;
     let servingSize = 0;
+    let nutrition = {
+      'calories': null,
+      'fat': null,
+      'saturates': null,
+      'protein': null,
+      'carbs': null,
+      'sugar': null,
+      'salt': null,
+      'fibre': null
+    };
+
     const recipeNutritionList = new FormArray([]);
     const recipeIngredients = new FormArray([]);
 
@@ -107,20 +115,7 @@ export class RecipeEditComponent implements OnInit {
           recipeDescription = recipe.description;
           servingSize = recipe.servingSize;
           totalTime = recipe.totalTime;
-          if (recipe['nutrition']) {
-              recipeNutritionList.push(
-                new FormGroup({
-                  'calories': new FormControl(recipe.nutrition.calories, Validators.required),
-                  'fat': new FormControl(recipe.nutrition.fat, Validators.required),
-                  'saturates': new FormControl(recipe.nutrition.saturates, Validators.required),
-                  'protein': new FormControl(recipe.nutrition.protein, Validators.required),
-                  'carbs': new FormControl(recipe.nutrition.carbs, Validators.required),
-                  'sugar': new FormControl(recipe.nutrition.sugar, Validators.required),
-                  'salt': new FormControl(recipe.nutrition.salt, Validators.required),
-                  'fibre': new FormControl(recipe.nutrition.fibre, Validators.required),
-              })
-            );
-          }
+          nutrition = recipe.nutrition;
           if (recipe['ingredients']) {
             for (const ingredient of recipe.ingredients) {
               recipeIngredients.push(
@@ -138,12 +133,26 @@ export class RecipeEditComponent implements OnInit {
     }
 
     this.recipeForm = new FormGroup({
-      'name': new FormControl(recipeName, Validators.required),
-      'headline': new FormControl(recipeHeadline, Validators.required),
-      'imagePath': new FormControl(recipeImagePath, Validators.required),
-      'description': new FormControl(recipeDescription, Validators.required),
-      'totalTime': new FormControl(totalTime, Validators.required),
-      'servingSize': new FormControl(servingSize, Validators.required),
+      'recipeEssentials': new FormGroup( {
+        'name': new FormControl(recipeName, Validators.required),
+        'headline': new FormControl(recipeHeadline, Validators.required),
+        'imagePath': new FormControl(recipeImagePath, Validators.required),
+        'description': new FormControl(recipeDescription, Validators.required),
+      }),
+      'recipeStats': new FormGroup( {
+        'totalTime': new FormControl(totalTime, Validators.required),
+        'servingSize': new FormControl(servingSize, Validators.required),
+      }),
+      'recipeAllegens': new FormGroup( {
+        'calories': new FormControl(nutrition.calories),
+        'fat': new FormControl(nutrition.fat),
+        'saturates': new FormControl(nutrition.saturates),
+        'protein': new FormControl(nutrition.protein),
+        'carbs': new FormControl(nutrition.carbs),
+        'sugar': new FormControl(nutrition.sugar),
+        'salt': new FormControl(nutrition.salt),
+        'fibre': new FormControl(nutrition.fibre),
+      }),
       'nutrition': recipeNutritionList,
       'ingredients': recipeIngredients
     });

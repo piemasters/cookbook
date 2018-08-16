@@ -10,7 +10,7 @@ export class Recipe {
   public ingredients: Ingredient[];
   public totalTime: number;
   public servingSize: number;
-  public nutrition: Nutrition[];
+  public nutrition: Nutrition;
   public allergens: string[];
   public steps: RecipeStep[];
   public tags: string[];
@@ -19,7 +19,7 @@ export class Recipe {
   public favoritesCount: number;
 
   constructor(name: string, headline: string, desc: string, imagePath: string, ingredients: Ingredient[], totalTime: number,
-              servingSize: number, nutrition: Nutrition[], allergens: string[], steps: RecipeStep[], tags: string[],
+              servingSize: number, nutrition: Nutrition, allergens: string[], steps: RecipeStep[], tags: string[],
               averageRating: number, ratingsCount: number, favoritesCount: number) {
     this.name = name;
     this.headline = headline;
