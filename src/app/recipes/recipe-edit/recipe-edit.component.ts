@@ -37,7 +37,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   get formAllergens() {
-    return <FormArray>this.recipeForm.get('allegerns');
+    return <FormArray>this.recipeForm.get('allergens');
   }
 
   get formTags() {
@@ -77,6 +77,18 @@ export class RecipeEditComponent implements OnInit {
     (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
+  onAddAllergens() {
+    (<FormArray>this.recipeForm.get('allergens')).push(
+      new FormGroup({
+        'name': new FormControl(null, Validators.required)
+      })
+    );
+  }
+
+  onDeleteAllergens(index: number) {
+    (<FormArray>this.recipeForm.get('allergens')).removeAt(index);
+  }
+
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
@@ -101,6 +113,8 @@ export class RecipeEditComponent implements OnInit {
 
     const recipeNutritionList = new FormArray([]);
     const recipeIngredients = new FormArray([]);
+    const recipeAllergens = new FormArray([]);
+
 
     if (this.editMode) {
       this.store.select('recipes')
@@ -116,6 +130,17 @@ export class RecipeEditComponent implements OnInit {
           servingSize = recipe.servingSize;
           totalTime = recipe.totalTime;
           nutrition = recipe.nutrition;
+
+          if (recipe['allergens']) {
+            for (const allergen of recipe.allergens) {
+              recipeAllergens.push(
+                new FormGroup({
+                  'name': new FormControl(allergen.name, Validators.required)
+                })
+              );
+            }
+          }
+
           if (recipe['ingredients']) {
             for (const ingredient of recipe.ingredients) {
               recipeIngredients.push(
@@ -138,12 +163,10 @@ export class RecipeEditComponent implements OnInit {
         'headline': new FormControl(recipeHeadline, Validators.required),
         'imagePath': new FormControl(recipeImagePath, Validators.required),
         'description': new FormControl(recipeDescription, Validators.required),
-      }),
-      'recipeStats': new FormGroup( {
         'totalTime': new FormControl(totalTime, Validators.required),
         'servingSize': new FormControl(servingSize, Validators.required),
       }),
-      'recipeAllegens': new FormGroup( {
+      'recipeNutrition': new FormGroup( {
         'calories': new FormControl(nutrition.calories),
         'fat': new FormControl(nutrition.fat),
         'saturates': new FormControl(nutrition.saturates),
@@ -153,6 +176,7 @@ export class RecipeEditComponent implements OnInit {
         'salt': new FormControl(nutrition.salt),
         'fibre': new FormControl(nutrition.fibre),
       }),
+      'allergens': recipeAllergens,
       'nutrition': recipeNutritionList,
       'ingredients': recipeIngredients
     });

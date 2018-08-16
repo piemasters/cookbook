@@ -1,9 +1,3 @@
-import { FormControl, Validators } from '@angular/forms';
-
-// export class Nutrition {
-//     constructor(public name: string, public amount: number, public unit: string) {}
-// }
-
 export class Nutrition {
   constructor(
     public calories: number,

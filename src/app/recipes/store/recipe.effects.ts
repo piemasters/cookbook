@@ -25,6 +25,8 @@ export class RecipeEffects {
           for (const recipe of recipes) {
             if (!recipe['ingredients']) {
               recipe['ingredients'] = [];
+            } else if (!recipe['allergens']) {
+              recipe['allergens'] = [];
             }
           }
           return {
