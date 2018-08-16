@@ -2,6 +2,7 @@ import { Ingredient } from '../shared/ingredient.model';
 import { RecipeStep } from './recipe-step.model';
 import { Nutrition } from '../shared/nutrition.model';
 import { Allergen } from '../shared/allergen.model';
+import { Tag } from '../shared/tag.model';
 
 export class Recipe {
   public name: string;
@@ -14,13 +15,13 @@ export class Recipe {
   public nutrition: Nutrition;
   public allergens: Allergen[];
   public steps: RecipeStep[];
-  public tags: string[];
+  public tags: Tag[];
   public averageRating: number;
   public ratingsCount: number;
   public favoritesCount: number;
 
   constructor(name: string, headline: string, desc: string, imagePath: string, ingredients: Ingredient[], totalTime: number,
-              servingSize: number, nutrition: Nutrition, allergens: Allergen[], steps: RecipeStep[], tags: string[],
+              servingSize: number, nutrition: Nutrition, allergens: Allergen[], steps: RecipeStep[], tags: Tag[],
               averageRating: number, ratingsCount: number, favoritesCount: number) {
     this.name = name;
     this.headline = headline;

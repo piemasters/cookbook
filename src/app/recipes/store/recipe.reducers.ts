@@ -130,7 +130,7 @@ const initialState: State = {
         new RecipeStep(
           1,
           'Cook the rice in a pan of boiling salted water over a medium heat for ' +
-          '25minutes, or until tender, then drain well. Tip back into the pan, season ' +
+          '25 minutes, or until tender, then drain well. Tip back into the pan, season ' +
           'with black pepper, cover with a lid and keep to one side.',
           'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg',
           'cooking'
@@ -201,7 +201,7 @@ const initialState: State = {
           ''
         )
       ],
-      ['food', 'test'],
+      [ { 'name': 'food' }, { 'name': 'test' } ],
       3,
       4,
       3
@@ -235,7 +235,7 @@ const initialState: State = {
         new RecipeStep(5, 'These are the instructions',
           'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking')
       ],
-      ['food', 'test'],
+      [ { 'name': 'food' }, { 'name': 'test' } ],
       5,
       4,
       3

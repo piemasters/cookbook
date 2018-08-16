@@ -89,6 +89,18 @@ export class RecipeEditComponent implements OnInit {
     (<FormArray>this.recipeForm.get('allergens')).removeAt(index);
   }
 
+  onAddTag() {
+    (<FormArray>this.recipeForm.get('tags')).push(
+      new FormGroup({
+        'name': new FormControl(null, Validators.required)
+      })
+    );
+  }
+
+  onDeleteTag(index: number) {
+    (<FormArray>this.recipeForm.get('tags')).removeAt(index);
+  }
+
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
@@ -111,10 +123,9 @@ export class RecipeEditComponent implements OnInit {
       'fibre': null
     };
 
-    const recipeNutritionList = new FormArray([]);
     const recipeIngredients = new FormArray([]);
     const recipeAllergens = new FormArray([]);
-
+    const recipeTags = new FormArray([]);
 
     if (this.editMode) {
       this.store.select('recipes')
@@ -136,6 +147,16 @@ export class RecipeEditComponent implements OnInit {
               recipeAllergens.push(
                 new FormGroup({
                   'name': new FormControl(allergen.name, Validators.required)
+                })
+              );
+            }
+          }
+
+          if (recipe['tags']) {
+            for (const tag of recipe.tags) {
+              recipeTags.push(
+                new FormGroup({
+                  'name': new FormControl(tag.name, Validators.required)
                 })
               );
             }
@@ -177,7 +198,7 @@ export class RecipeEditComponent implements OnInit {
         'fibre': new FormControl(nutrition.fibre),
       }),
       'allergens': recipeAllergens,
-      'nutrition': recipeNutritionList,
+      'tags': recipeTags,
       'ingredients': recipeIngredients
     });
   }
