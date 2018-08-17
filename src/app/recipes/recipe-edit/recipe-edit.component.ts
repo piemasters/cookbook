@@ -104,10 +104,6 @@ export class RecipeEditComponent implements OnInit {
   onAddStep() {
     (<FormArray>this.recipeForm.get('steps')).push(
       new FormGroup({
-        'number': new FormControl(null, [
-          Validators.required,
-          Validators.pattern(/^[1-9]+[0-9]*$/)
-        ]),
         'instructions': new FormControl(null, Validators.required),
         'imagePath': new FormControl(null),
         'imageCaption': new FormControl(null)
@@ -130,7 +126,7 @@ export class RecipeEditComponent implements OnInit {
     let recipeDescription = '';
     let totalTime = 0;
     let servingSize = 0;
-    let nutrition = {
+    let nutrition: Nutrition = {
       'calories': null,
       'fat': null,
       'saturates': null,
@@ -185,10 +181,6 @@ export class RecipeEditComponent implements OnInit {
             for (const step of recipe.steps) {
               recipeSteps.push(
                 new FormGroup({
-                  'number': new FormControl(step.stepNumber, [
-                    Validators.required,
-                    Validators.pattern(/^[1-9]+[0-9]*$/)
-                  ]),
                   'instructions': new FormControl(step.instructions, Validators.required),
                   'imagePath': new FormControl(step.imagePath),
                   'imageCaption': new FormControl(step.imageCaption)
@@ -204,7 +196,7 @@ export class RecipeEditComponent implements OnInit {
                   'name': new FormControl(ingredient.name, Validators.required),
                   'amount': new FormControl(ingredient.amount, [
                     Validators.required,
-                    Validators.pattern(/^[1-9]+[0-9]*$/)
+                    Validators.pattern(/^[.\d]+$/)
                   ])
                 })
               );

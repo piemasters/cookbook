@@ -11,7 +11,7 @@
         <h2 id="recipe-name">{{ (recipeState | async).recipes[id].name }}</h2>
         <h4 id="recipe-headline">{{ (recipeState | async).recipes[id].headline }}</h4>
       </div>
-      <div id="recipe-details-column" class="col-sm-3 test">
+      <div id="recipe-details-column" class="col-sm-3">
         <div id="manage-recipe-button" class="btn-group dropdown" ngbDropdown>
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
             Manage Recipe <span class="caret"></span>
@@ -78,10 +78,10 @@
   </div>
   <div class="card-body">
     <ul id="steps-list" class="list-unstyled">
-      <li class="media step" *ngFor="let step of (recipeState | async).recipes[id].steps">
+      <li class="media step" *ngFor="let step of (recipeState | async).recipes[id].steps; let i = index">
         <img class="mr-2 step-image" [src]="step.imagePath" [alt]="step.imageCaption">
         <div class="media-body">
-          <h5 class="mt-0">Step {{step.stepNumber}}</h5>
+          <h5 class="mt-0">Step {{i + 1}}</h5>
            {{step.instructions}}
         </div>
 

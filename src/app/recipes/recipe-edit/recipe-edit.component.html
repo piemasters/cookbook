@@ -1,52 +1,67 @@
-<div class="row">
-  <div class="col-xs col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+<div class="recipe-edit-container">
+  <div class="col-xs col-lg-10 offset-lg-1">
     <form [formGroup]="recipeForm" action="" (ngSubmit)="onSubmit()">
-
-
-
-      <div class="row">
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
-          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
-        </div>
-      </div>
 
       <div formGroupName="recipeEssentials">
 
         <h2>Recipe</h2>
 
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" class="form-control" formControlName="name">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="headline">Headline</label>
-          <input type="text" id="headline" class="form-control" formControlName="headline">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="headline">Headline</label>
+            <input type="text" id="headline" class="form-control" formControlName="headline">
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="imagePath">Image URL</label>
-          <input type="text" id="imagePath" class="form-control" formControlName="imagePath" #imagePath>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="description">Description</label>
+            <textarea type="text" id="description" class="form-control" rows="6" formControlName="description"></textarea>
+          </div>
         </div>
 
-        <div class="form-group">
-          <img [src]="imagePath.value" alt="" class="img-responsive headline-image">
+        <div class="form-row">
+
+          <div class="col-md-6">
+            <label for="totalTime">Total Time</label>
+            <div class="input-group">
+              <input type="number" id="totalTime" class="form-control" formControlName="totalTime">
+              <div class="input-group-append">
+                <span class="input-group-text">mins</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="servingSize">Serving Size</label>
+            <div class="input-group">
+              <input type="number" id="servingSize" class="form-control" formControlName="servingSize">
+              <div class="input-group-append">
+                <span class="input-group-text">people</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea type="text" id="description" class="form-control" rows="6" formControlName="description"></textarea>
-        </div>
+        <div class="form-row">
 
-        <div class="form-group">
-          <label for="totalTime">Total Time</label>
-          <input type="number" id="totalTime" class="form-control" formControlName="totalTime">
-        </div>
+          <div class="form-group col-md-8">
+            <label for="imagePath">Image URL</label>
+            <input type="text" id="imagePath" class="form-control" formControlName="imagePath" #imagePath>
+          </div>
 
-        <div class="form-group">
-          <label for="servingSize">Serving Size</label>
-          <input type="number" id="servingSize" class="form-control" formControlName="servingSize">
+          <div class="form-group col-md-4">
+            <img [src]="imagePath.value" alt="" class="img-responsive headline-image">
+          </div>
+
         </div>
 
       </div>
@@ -56,68 +71,84 @@
 
         <h2>Nutrition</h2>
 
-        <label for="calories">Calories</label>
-        <div class="input-group">
-          <input type="number" id="calories" class="form-control" formControlName="calories">
-          <div class="input-group-append">
-            <span class="input-group-text">kcal</span>
+        <div class="form-group row">
+
+          <label for="calories" class="col-md-4 col-lg-2 col-form-label">Calories</label>
+          <div class="input-group col-md-8 col-lg-4">
+            <input type="number" id="calories" class="form-control" formControlName="calories">
+            <div class="input-group-append">
+              <span class="input-group-text">kcal</span>
+            </div>
           </div>
+
+          <label for="fat" class="col-md-4 col-lg-2 col-form-label">Fat</label>
+          <div class="input-group col-md-8 col-lg-4">
+            <input type="number" id="fat" class="form-control" formControlName="fat">
+            <div class="input-group-append">
+              <span class="input-group-text">g</span>
+            </div>
+          </div>
+
         </div>
 
-        <label for="fat">Fat</label>
-        <div class="input-group">
-          <input type="number" id="fat" class="form-control" formControlName="fat">
-          <div class="input-group-append">
-            <span class="input-group-text">g</span>
+        <div class="form-group row">
+
+          <label for="satFat" class="col-md-4 col-lg-2 col-form-label">Sat Fat</label>
+          <div class="input-group col-md-8 col-lg-4">
+            <input type="number" id="satFat" class="form-control" formControlName="saturates">
+            <div class="input-group-append">
+              <span class="input-group-text">g</span>
+            </div>
           </div>
+
+          <label for="protien" class="col-md-4 col-lg-2 col-form-label">Protien</label>
+          <div class="input-group col-md-8 col-lg-4">
+            <input type="number" id="protien" class="form-control" formControlName="protein">
+            <div class="input-group-append">
+              <span class="input-group-text">g</span>
+            </div>
+          </div>
+
         </div>
 
-        <label for="satFat">Sat Fat</label>
-        <div class="input-group">
-          <input type="number" id="satFat" class="form-control" formControlName="saturates">
-          <div class="input-group-append">
-            <span class="input-group-text">g</span>
+        <div class="form-group row">
+
+          <label for="carbs" class="col-md-4 col-lg-2 col-form-label">Carbs</label>
+          <div class="input-group col-md-8 col-lg-4">
+            <input type="number" id="carbs" class="form-control" formControlName="carbs">
+            <div class="input-group-append">
+              <span class="input-group-text">g</span>
+            </div>
           </div>
+
+          <label for="sugar" class="col-md-4 col-lg-2 col-form-label">Sugar</label>
+          <div class="input-group col-md-8 col-lg-4">
+            <input type="number" id="sugar" class="form-control" formControlName="sugar">
+            <div class="input-group-append">
+              <span class="input-group-text">g</span>
+            </div>
+          </div>
+
         </div>
 
-        <label for="protien">Protien</label>
-        <div class="input-group">
-          <input type="number" id="protien" class="form-control" formControlName="protein">
-          <div class="input-group-append">
-            <span class="input-group-text">g</span>
-          </div>
-        </div>
+        <div class="form-group row">
 
-        <label for="carbs">Carbs</label>
-        <div class="input-group">
-          <input type="number" id="carbs" class="form-control" formControlName="carbs">
-          <div class="input-group-append">
-            <span class="input-group-text">g</span>
+          <label for="salt" class="col-md-4 col-lg-2 col-form-label">Salt</label>
+          <div class="input-group col-md-8 col-lg-4">
+            <input type="number" id="salt" class="form-control" formControlName="salt">
+            <div class="input-group-append">
+              <span class="input-group-text">g</span>
+            </div>
           </div>
-        </div>
 
-        <label for="sugar">Sugar</label>
-        <div class="input-group">
-          <input type="number" id="sugar" class="form-control" formControlName="sugar">
-          <div class="input-group-append">
-            <span class="input-group-text">g</span>
+          <label for="fibre" class="col-md-4 col-lg-2 col-form-label">Fibre</label>
+          <div class="input-group col-md-8 col-lg-4">
+            <input type="number" id="fibre" class="form-control" formControlName="fibre">
+            <div class="input-group-append">
+              <span class="input-group-text">g</span>
+            </div>
           </div>
-        </div>
 
-        <label for="salt">Salt</label>
-        <div class="input-group">
-          <input type="number" id="salt" class="form-control" formControlName="salt">
-          <div class="input-group-append">
-            <span class="input-group-text">g</span>
-          </div>
-        </div>
-
-        <label for="fibre">Fibre</label>
-        <div class="input-group">
-          <input type="number" id="fibre" class="form-control" formControlName="fibre">
-          <div class="input-group-append">
-            <span class="input-group-text">g</span>
-          </div>
         </div>
 
       </div>
@@ -125,116 +156,112 @@
 
       <h2>Allergens</h2>
 
-      <div class="row">
-        <div class="col-xs-12" formArrayName="allergens">
-          <div class="row" *ngFor="let allergenCtrl of formAllergens?.controls; let i = index" [formGroupName]="i" style="margin-top: 10px;">
-            <div class="col-xs-8">
-              <input type="text" class="form-control" formControlName="name">
-            </div>
-            <div class="col-xs-3">
-              <button class="btn btn-danger" type="button" (click)="onDeleteAllergen(i)">X</button>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-xs-12">
-              <button class="btn btn-success" (click)="onAddAllergen()" type="button">Add allergen</button>
-            </div>
+      <div class="form-row" formArrayName="allergens">
+
+        <div class="input-group col-md-4" *ngFor="let allergenCtrl of formAllergens?.controls; let i = index; let isLast=last"
+             [formGroupName]="i" style="margin-top: 10px;">
+          <input type="text" class="form-control" formControlName="name">
+          <div class="input-group-append">
+            <button class="btn btn-danger" type="button" (click)="onDeleteAllergen(i)">x</button>
+            <button *ngIf="isLast" class="btn btn-success" (click)="onAddAllergen()" type="button">+</button>
           </div>
         </div>
+
       </div>
+
 
       <h2>Tags</h2>
 
-      <div class="row">
-        <div class="col-xs-12" formArrayName="tags">
-          <div class="row" *ngFor="let tagCtrl of formTags?.controls; let i = index" [formGroupName]="i" style="margin-top: 10px;">
-            <div class="col-xs-8">
-              <input type="text" class="form-control" formControlName="name">
-            </div>
-            <div class="col-xs-3">
-              <button class="btn btn-danger" type="button" (click)="onDeleteTag(i)">X</button>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-xs-12">
-              <button class="btn btn-success" (click)="onAddTag()" type="button">Add tag</button>
-            </div>
+      <div class="form-row" formArrayName="tags">
+
+        <div class="input-group col-md-4" *ngFor="let tagCtrl of formTags?.controls; let i = index; let isLast=last"
+             [formGroupName]="i" style="margin-top: 10px;">
+          <input type="text" class="form-control" formControlName="name">
+          <div class="input-group-append">
+            <button class="btn btn-danger" type="button" (click)="onDeleteTag(i)">X</button>
+            <button *ngIf="isLast" class="btn btn-success" (click)="onAddTag()" type="button">+</button>
           </div>
         </div>
+
       </div>
 
       <h2>Ingredients</h2>
 
-      <div class="row">
-        <div class="col-xs-12" formArrayName="ingredients">
-          <div class="row" *ngFor="let ingredientCtrl of formIngredients?.controls; let i = index" [formGroupName]="i" style="margin-top: 10px;">
-            <div class="col-xs-8">
-              <input type="text" class="form-control" formControlName="name">
-            </div>
-            <div class="col-xs-2">
-              <input type="number" class="form-control" formControlName="amount">
-            </div>
-            <div class="col-xs-2">
-              <button class="btn btn-danger" type="button" (click)="onDeleteIngredient(i)">X</button>
+      <div class="form-row" formArrayName="ingredients">
+
+          <div class="input-group col-lg-6" *ngFor="let ingredientCtrl of formIngredients?.controls; let i = index; let isLast=last"
+               [formGroupName]="i" style="margin-top: 10px;">
+            <input type="text" class="form-control col-md-8" formControlName="name">
+            <input type="number" class="form-control col-md-4" formControlName="amount">
+            <div class="input-group-append">
+              <button class="btn btn-danger" type="button" (click)="onDeleteIngredient(i)">x</button>
+              <button *ngIf="isLast" class="btn btn-success" (click)="onAddIngredient()" type="button">+</button>
             </div>
           </div>
-          <hr>
-          <div class="row">
-            <div class="col-xs-12">
-              <button class="btn btn-success" (click)="onAddIngredient()" type="button">Add ingredient</button>
-            </div>
-          </div>
-        </div>
+
       </div>
 
       <h2>Steps</h2>
 
       <div formArrayName="steps">
-        <div *ngFor="let stepCtrl of formSteps?.controls; let i = index" [formGroupName]="i" style="margin-top: 10px;">
+        <div *ngFor="let stepCtrl of formSteps?.controls; let i = index; let isLast=last"
+             [formGroupName]="i" style="margin-top: 10px;">
 
           <div id="steps-card" class="card">
+
             <div class="card-header">
-              <h3>Step</h3>
-              <button class="btn btn-danger" type="button" (click)="onDeleteStep(i)">X</button>
+              <div class="row equal title-container">
+                <div class="step-title-column col-sm-9">
+                  <h3>Step {{i + 1}}</h3>
+                </div>
+                <div class="step-details-column col-sm-3">
+                  <button class="step-action btn btn-danger" type="button" (click)="onDeleteStep(i)">x</button>
+                  <button *ngIf="isLast" class="step-action btn btn-success" (click)="onAddStep()" type="button">+</button>
+                </div>
+              </div>
             </div>
+
             <div class="card-body">
-              <div class="form-group">
-                <label>Number</label>
-                <input type="number" class="form-control" formControlName="number">
+
+              <div class="form-row">
+
+                <div class="form-group col-md-8">
+                  <label>Description</label>
+                  <textarea type="text" class="form-control" rows="4" formControlName="instructions"></textarea>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <img [src]="stepImagePath.value" alt="" class="img-responsive headline-image">
+                </div>
+
               </div>
 
-              <div class="form-group">
-                <label>Description</label>
-                <textarea type="text" class="form-control" rows="6" formControlName="instructions"></textarea>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Image Caption</label>
+                  <input type="text" class="form-control" formControlName="imageCaption">
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>Image Path</label>
-                <input type="text" class="form-control" formControlName="imagePath" #stepImagePath>
-                <img [src]="stepImagePath.value" alt="" class="img-responsive headline-image">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Image Path</label>
+                  <input type="text" class="form-control" formControlName="imagePath" #stepImagePath>
+                </div>
               </div>
 
-
-
-              <div class="form-group">
-                <label>Image Caption</label>
-                <input type="text" class="form-control" formControlName="imageCaption">
-              </div>
             </div>
           </div>
 
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-xs-12">
-            <button class="btn btn-success" (click)="onAddStep()" type="button">Add Step</button>
-          </div>
         </div>
       </div>
 
-
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
 
     </form>
   </div>

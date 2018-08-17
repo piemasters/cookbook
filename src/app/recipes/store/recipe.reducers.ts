@@ -128,7 +128,6 @@ const initialState: State = {
      ],
       [
         new RecipeStep(
-          1,
           'Cook the rice in a pan of boiling salted water over a medium heat for ' +
           '25 minutes, or until tender, then drain well. Tip back into the pan, season ' +
           'with black pepper, cover with a lid and keep to one side.',
@@ -136,7 +135,6 @@ const initialState: State = {
           'cooking'
         ),
         new RecipeStep(
-          2,
           'Meanwhile, trim and finely slice the spring onions, then halve, deseed ' +
           'and roughly chop the pepper. Pick the coriander, finely chopping the leaves and stalks.',
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
@@ -144,7 +142,6 @@ const initialState: State = {
           'slice the spring onions'
         ),
         new RecipeStep(
-          3,
           'Heat 1 tablespoon of oil in a wide saucepan over a medium heat, add ' +
           'the sliced spring onion, pepper and coriander stalks and fry for 4 to ' +
           '5 minutes, until softened, stirring occasionally.',
@@ -152,7 +149,6 @@ const initialState: State = {
           ''
         ),
         new RecipeStep(
-          4,
           'Meanwhile, place the beef into a mixing bowl, add the sweet smoked ' +
           'paprika, chilli powder (add a little less if you can’t handle the heat!) and ' +
           'a good pinch of sea salt and black pepper and mix together well. Using ' +
@@ -162,7 +158,6 @@ const initialState: State = {
           'roll the mixture into 6 little balls'
         ),
         new RecipeStep(
-          5,
           'Add the tomatoes to the saucepan along with a tin’s worth of water, ' +
           'breaking the tomatoes up with a spoon as you go. Bring to the boil then drain and add the black beans.',
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
@@ -170,7 +165,6 @@ const initialState: State = {
           'add the tomatoes to the saucepan'
         ),
         new RecipeStep(
-          6,
           'Preheat the grill to high. Prick the chillies and place on a baking tray under the hot grill for ' +
           '10 minutes, or until blackened, turning often.',
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
@@ -178,7 +172,6 @@ const initialState: State = {
           'place chillies on a baking tray'
         ),
         new RecipeStep(
-          7,
           'Meanwhile, heat a tablespoon of oil in a frying pan over a medium ' +
           'heat, add the meatballs and cumin seeds, then fry for 4 minutes, or until ' +
           'browned all over, stirring often.',
@@ -186,14 +179,12 @@ const initialState: State = {
           ''
         ),
         new RecipeStep(
-          8,
           'Add the meatballs to the tomato sauce and cook for 6 to 8 minutes, ' +
           'or until the sauce is thick and the meatballs are cooked through, stirring occasionally.',
           '',
           ''
         ),
         new RecipeStep(
-          9,
           'Fold the chopped coriander leaves through the rice, then divide ' +
           'between your plates. Top each with the meatballs and beans, ' +
           '1 blackened chilli, 1 tablespoon of yoghurt, and 1 wedge of lime for squeezing over.',
@@ -224,15 +215,15 @@ const initialState: State = {
         {'name': 'Peanuts'}, {'name': 'Gluten'}, {'name': 'Nuts'}, {'name': 'Celery'}, {'name': 'Sesame'}
       ],
       [
-        new RecipeStep(1, 'These are the instructions',
+        new RecipeStep( 'These are the instructions',
           'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
-        new RecipeStep(2, 'These are the instructions',
+        new RecipeStep('These are the instructions',
           'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
-        new RecipeStep(3, 'These are the instructions',
+        new RecipeStep('These are the instructions',
           'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
-        new RecipeStep(4, 'These are the instructions',
+        new RecipeStep('These are the instructions',
           'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking'),
-        new RecipeStep(5, 'These are the instructions',
+        new RecipeStep('These are the instructions',
           'http://ogradacustruti.ro/nou/wp-content/uploads/2018/04/cooking-tips.jpg', 'cooking')
       ],
       [ { 'name': 'food' }, { 'name': 'test' } ],
