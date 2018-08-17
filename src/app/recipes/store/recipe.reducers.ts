@@ -40,14 +40,14 @@ const initialState: State = {
           2,
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Ingredients%2Fspring%20onion.png?alt=media&token=4931174f-a721-4511-bd2a-14893aae9019',
-          'spring onion/s'
+          'item/s'
         ),
         new Ingredient(
           'Red Pepper',
           1,
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Ingredients%2Fred%20pepper.png?alt=media&token=50986e98-809e-4f2c-b3a1-66caacc3d08b',
-          'red pepper/s'
+          'item/s'
         ),
         new Ingredient(
           'Fresh Coriander',
@@ -61,14 +61,14 @@ const initialState: State = {
           0.5,
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Ingredients%2Fsweet%20smoked%20paprika.png?alt=media&token=4325da47-c28e-446d-b338-71bf0c0f8224',
-          'teaspoon/s'
+          'tsp/s'
         ),
         new Ingredient(
           'Chilli Powder',
           0.25,
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Ingredients%2Fchilli%20powder.png?alt=media&token=11d60852-bb68-470f-8481-02fc0eb85c80',
-          'teaspoon/s'
+          'tsp/s'
         ),
         new Ingredient(
           'Plum Tomatoes',
@@ -89,28 +89,28 @@ const initialState: State = {
           2,
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Ingredients%2Fgreen%20chilli.png?alt=media&token=6efb24d0-c622-41dd-ac30-566312742030',
-          'chilli/s'
+          'item/s'
         ),
         new Ingredient(
           'Cumin Seeds',
           0.5,
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Ingredients%2Fcumin%20seeds.png?alt=media&token=eda08310-9d93-4574-a03b-54e68fbda9b4',
-          'teaspoon/s'
+          'tsp/s'
         ),
         new Ingredient(
           'Natural Yoghurt',
           2,
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Ingredients%2Fnatural%20yogurt.png?alt=media&token=12f697c0-5948-4c0e-8815-ebc3ff4076a9',
-          'tablespoon/s'
+          'tbsp/s'
         ),
         new Ingredient(
           'Lime',
           1,
           'https://firebasestorage.googleapis.com/v0/b/cookbook-eda8c.appspot.com/o/' +
           'Ingredients%2Flime.png?alt=media&token=4810a384-c109-44f6-9ea2-6c5d9eb79bd3',
-          'lime/s'
+          'item/s'
         ),
         new Ingredient(
           'Lean Minced Beef',
