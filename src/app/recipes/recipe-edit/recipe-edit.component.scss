@@ -1,4 +1,19 @@
+.recipe-edit-container {
+  padding: 2rem;
+}
+
 input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
   border: solid 1px red;
+}
+.headline-image {
+  max-width: 100%;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.step-action {
+  float: right;
 }
