@@ -64,11 +64,12 @@ export class RecipeEditComponent implements OnInit {
     (<FormArray>this.recipeForm.get('ingredients')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required),
-        'headline': new FormControl(null, Validators.required),
         'amount': new FormControl(null, [
           Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/)
-        ])
+        ]),
+        'unit': new FormControl(null, Validators.required),
+        'imagePath': new FormControl(null)
       })
     );
   }
@@ -197,7 +198,9 @@ export class RecipeEditComponent implements OnInit {
                   'amount': new FormControl(ingredient.amount, [
                     Validators.required,
                     Validators.pattern(/^[.\d]+$/)
-                  ])
+                  ]),
+                  'imagePath': new FormControl(ingredient.imagePath),
+                  'unit': new FormControl(ingredient.unit, Validators.required),
                 })
               );
             }
