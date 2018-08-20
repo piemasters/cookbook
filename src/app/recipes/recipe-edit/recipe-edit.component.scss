@@ -25,3 +25,35 @@ textarea.ng-invalid.ng-touched {
 .ingredient-unit {
   width: 5rem;
 }
+
+.submit-form, .cancel-form {
+  box-shadow: 2px 2px 2px gray;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  bottom: 2rem;
+  color: white;
+  cursor: pointer;
+  height: 4rem;
+  position: fixed;
+  width: 4rem;
+  z-index: 5;
+  &:hover {
+    background-color: slategrey;
+  }
+}
+
+.submit-form {
+  background-color: #28a745;
+  right: 10rem;
+  &:hover {
+    background-color: #218838;
+  }
+}
+
+.cancel-form {
+  background-color: #dc3545;
+  right: 4rem;
+  &:hover {
+    background-color: #c82333;
+  }
+}

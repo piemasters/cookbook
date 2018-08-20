@@ -254,12 +254,13 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
-          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
-        </div>
-      </div>
+      <button class="submit-form" type="submit" [disabled]="!recipeForm.valid" aria-label="Save recipe changes">
+        <i class="fa fa-save"></i>
+      </button>
+      <button class="cancel-form" type="button" (click)="onCancel()" aria-label="Cancel recipe changes">
+        <i class="fa fa-ban"></i>
+      </button>
+
 
     </form>
   </div>
