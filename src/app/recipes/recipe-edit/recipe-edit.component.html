@@ -227,12 +227,12 @@
 
               <div class="form-row">
 
-                <div class="form-group" [ngClass]="{'col-md-8' : stepImagePath.value, 'col-md-12' : !stepImagePath.value}">
+                <div class="form-group" [ngClass]="{'col-md-8' : formSteps.getRawValue()[i].imagePath, 'col-md-12' : !formSteps.getRawValue()[i].imagePath}">
                   <label>Description</label>
                   <textarea type="text" class="form-control" rows="4" formControlName="instructions"></textarea>
                 </div>
 
-                <div class="form-group col-md-4" *ngIf="stepImagePath.value">
+                <div class="form-group col-md-4" *ngIf="formSteps.getRawValue()[i].imagePath">
                   <img [src]="stepImagePath.value" alt="" class="img-responsive headline-image">
                 </div>
 
