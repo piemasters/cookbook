@@ -2,7 +2,7 @@
 
   <a class="navbar-brand" routerLink="/">Cookbook</a>
 
-  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" (click)="toggleCollapsed()" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -10,20 +10,20 @@
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/recipes">Recipes</a>
+        <a class="nav-link" routerLink="/recipes" (click)="toggleCollapsed()">Recipes</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
+        <a class="nav-link" routerLink="/shopping-list" (click)="toggleCollapsed()">Shopping List</a>
       </li>
     </ul>
 
     <ul class="my-2 my-lg-0 navbar-nav">
       <ng-template [ngIf]="!(authState | async).authenticated">
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/signup">Register</a>
+          <a class="nav-link" routerLink="/signup" (click)="toggleCollapsed()">Register</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/signin">Login</a>
+          <a class="nav-link" routerLink="/signin" (click)="toggleCollapsed()">Login</a>
         </li>
       </ng-template>
 
@@ -32,13 +32,13 @@
           Manage <span class="caret"></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownManage" ngbDropdownMenu>
-          <button class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</button>
-          <button class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</button>
+          <button class="dropdown-item" style="cursor: pointer;" (click)="onSaveData(); toggleCollapsed()">Save Data</button>
+          <button class="dropdown-item" style="cursor: pointer;" (click)="onFetchData(); toggleCollapsed()">Fetch Data</button>
         </div>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" style="cursor: pointer;" (click)="onLogout()" *ngIf="(authState | async).authenticated">Logout</a>
+        <a class="nav-link" style="cursor: pointer;" (click)="onLogout(); toggleCollapsed()" *ngIf="(authState | async).authenticated">Logout</a>
       </li>
     </ul>
 

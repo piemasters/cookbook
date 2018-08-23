@@ -25,6 +25,10 @@ export class HeaderComponent implements OnInit {
     this.authState = this.store.select('auth');
   }
 
+  toggleCollapsed() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
   onSaveData() {
     this.store.dispatch((new RecipeActions.StoreRecipes()));
   }
