@@ -154,7 +154,11 @@
       </div>
 
 
-      <h2>Allergens</h2>
+      <h2>
+        Allergens
+        <button *ngIf="formAllergens.length === 0" class="btn btn-success" (click)="onAddAllergen()" type="button">+</button>
+      </h2>
+
 
       <div class="form-row" formArrayName="allergens">
 
@@ -170,7 +174,10 @@
       </div>
 
 
-      <h2>Tags</h2>
+      <h2>
+        Tags
+        <button *ngIf="formTags.length === 0" class="btn btn-success" (click)="onAddTag()" type="button">+</button>
+      </h2>
 
       <div class="form-row" formArrayName="tags">
 
@@ -185,7 +192,10 @@
 
       </div>
 
-      <h2>Ingredients</h2>
+      <h2>
+        Ingredients
+        <button *ngIf="formIngredients.length === 0" class="btn btn-success" (click)="onAddIngredient()" type="button">+</button>
+      </h2>
 
       <div class="form-row" formArrayName="ingredients">
 
@@ -203,7 +213,10 @@
       </div>
 
 
-      <h2>Steps</h2>
+      <h2>
+        Steps
+        <button *ngIf="formSteps.length === 0" class="btn btn-success" (click)="onAddStep()" type="button">+</button>
+      </h2>
 
       <div formArrayName="steps">
         <div *ngFor="let stepCtrl of formSteps?.controls; let i = index; let isLast=last"
