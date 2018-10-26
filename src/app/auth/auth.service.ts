@@ -16,7 +16,7 @@ export class AuthService {
       .then(
         user => {
           this.store.dispatch(new AuthActions.Signup());
-          firebase.auth().currentUser.getToken().then(
+          firebase.auth().currentUser.getIdToken().then(
             (token: string) => {
               this.store.dispatch(new AuthActions.SetToken(token));
             }
@@ -34,7 +34,7 @@ export class AuthService {
         response => {
           this.store.dispatch(new AuthActions.Signin());
           this.router.navigate(['/']);
-          firebase.auth().currentUser.getToken().then(
+          firebase.auth().currentUser.getIdToken().then(
             (token: string) => {
               this.store.dispatch(new AuthActions.SetToken(token));
             }
